@@ -1,0 +1,32 @@
+User Stories
+
+As an uploader, I want upload and share content so that my content can be online
+
+	Given I upload some content
+	When I check to see the content
+	Then I should be able to see the content
+
+	Given I share a link to my content
+	When the person I shared it with clicks the link
+	Then they should see my content
+
+	Given I upload content
+	When a new person looks at the content 
+	Then I want to see the view counter updated
+
+As a user, I want view content so that I can be entertained
+
+	When I check the front page
+	Then I should see pictures
+
+	When I click a picture 
+	Then the picture should get bigger
+
+	When I scroll to the bottom of the page 
+	Then the page should load more pictures
+
+	Given I am not on the homepage
+	When I click the imgur logo
+	Then I should return to the home page
+
+	
