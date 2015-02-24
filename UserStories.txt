@@ -2,31 +2,88 @@ User Stories
 
 As an uploader, I want upload and share content so that my content can be online
 
+	# Barry
 	Given I upload some content
 	When I check to see the content
 	Then I should be able to see the content
 
+	#Barry
 	Given I share a link to my content
 	When the person I shared it with clicks the link
 	Then they should see my content
 
+	#Barry
 	Given I upload content
 	When a new person looks at the content 
 	Then I want to see the view counter updated
 
+	#Joey
+	Given I am logged into an account
+	When I view my images
+	Then I should see pictures that I have uploaded
+
 As a user, I want view content so that I can be entertained
 
+	#Barry
 	When I check the front page
 	Then I should see pictures
 
+	#Barry
 	When I click a picture 
 	Then the picture should get bigger
 
+	#Barry
 	When I scroll to the bottom of the page 
 	Then the page should load more pictures
 
+	#Joey
+	Given that I am logged in
+	When I comment on a picture
+	Then my comment should appear on the picture's page.
+
+	#Joey
+	When I "favorite" a picture
+	Then that picture should appear on my list of favorites
+
+As a user, I want to be able to browse the site so that I can view content.
+
+	#Joey
+	When I search for "funny,"
+	Then I should find images that are tagged as funny.
+
+	#Barry
 	Given I am not on the homepage
 	When I click the imgur logo
 	Then I should return to the home page
 
+	#Joey
+	Given I am not logged in
+	When I click on "log in"
+		and enter my credentials
+	Then I shall be logged in.
+
+	#Joey
+	Given I am logged in
+	When I click on "log out"
+	Then I shall be logged out
+
+As an uploader, I want to be able to manage my content so that I can I can control my content
 	
+	#Joey
+	Given I am logged in
+		and I have a picture uploaded on my account
+	When I change the title of a picture
+	Then I should see the new title when I view the image.
+
+	#Joey
+	Given I am logged in
+		and I have a picture uploaded on my account
+	When I delete that picture
+	Then it should not appear in my uploads
+
+	#Joey
+	Given I am logged in
+		and I own an empty album
+	When I add a picture to that album
+	Then that one picture will be in that album
+
