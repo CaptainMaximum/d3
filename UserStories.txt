@@ -56,6 +56,21 @@ As a user, I want to be able to browse the site so that I can view content.
 	When I click the imgur logo
 	Then I should return to the home page
 
+	#Barry
+	Given that I am on the homepage and the sidebar is closed
+	When I click show sidebar
+	Then the sidebar should appear.
+
+	#Barry
+	Given that I am on the homepage
+	When I click the random button
+	Then I should be taken to a random image
+
+	#Barry
+	Given that I return to the homepage from a random image
+	When I click the random button again
+	Then I should be taken to a different random image
+
 	#Joey
 	Given I am not logged in
 	When I click on "log in"
