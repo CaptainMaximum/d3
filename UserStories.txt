@@ -83,7 +83,7 @@ As a user, I want to be able to browse the site so that I can view content.
 	Then I shall be logged out
 
 As an uploader, I want to be able to manage my content so that I can I can control my content
-	
+
 	#Joey
 	Given I am logged in
 		and I have a picture uploaded on my account
@@ -92,9 +92,20 @@ As an uploader, I want to be able to manage my content so that I can I can contr
 
 	#Joey
 	Given I am logged in
+	When I create a new album
+	Then It shall appear in my list of albums
+
+	#Joey
+	Given I am logged in
 		and I have a picture uploaded on my account
 	When I delete that picture
 	Then it should not appear in my uploads
+
+	#Joey
+	Given I am logged in
+		And I have an album
+	When I delete that album
+	
 
 	#Joey
 	Given I am logged in
