@@ -2,20 +2,20 @@ User Stories
 
 As an uploader, I want upload and share content so that my content can be online
 
-	# Barry
+	# Barry - DONE
 	Given I upload some content
 	When I check to see the content
 	Then I should be able to see the content
 
-	#Barry
+	#Barry - DONE
 	Given I share a link to my content
 	When the person I shared it with clicks the link
 	Then they should see my content
 
-	#Barry
+	#Barry - DONE
 	Given I upload content
-	When a new person looks at the content 
-	Then I want to see the view counter updated
+	When time advances
+	Then I want to see the time on the site updated
 
 	#Joey
 	Given I am logged into an account
@@ -28,9 +28,9 @@ As a user, I want view content so that I can be entertained
 	When I check the front page
 	Then I should see pictures
 
-	#Barry
+	#Barry - DONE
 	When I click a picture 
-	Then the picture should get bigger
+	Then the picture should be taken to that page
 
 	#Barry
 	When I scroll to the bottom of the page 
@@ -51,7 +51,7 @@ As a user, I want to be able to browse the site so that I can view content.
 	When I search for "funny,"
 	Then I should find images that are tagged as funny.
 
-	#Barry
+	#Barry - DONE
 	Given I am not on the homepage
 	When I click the imgur logo
 	Then I should return to the home page
@@ -61,12 +61,12 @@ As a user, I want to be able to browse the site so that I can view content.
 	When I click show sidebar
 	Then the sidebar should appear.
 
-	#Barry
+	#Barry - DONE
 	Given that I am on the homepage
 	When I click the random button
 	Then I should be taken to a random image
 
-	#Barry
+	#Barry -DONE
 	Given that I return to the homepage from a random image
 	When I click the random button again
 	Then I should be taken to a different random image
