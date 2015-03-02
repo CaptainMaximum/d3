@@ -6,14 +6,10 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.imageio.ImageIO;
-
 import org.openqa.selenium.*;
 import org.junit.*;
-
 import static org.junit.Assert.*;
-
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,6 +22,7 @@ public class webtests {
 	WebDriver driver = new FirefoxDriver();
 	
 	@Test
+	//This test makes sure that the homepage shows a verity of images
 	public void HomePagePictures() throws Exception {
 		driver.get("http://imgur.com/");
 		boolean dups = true;
@@ -46,6 +43,7 @@ public class webtests {
 	
 	
 	@Test
+	//This test makes sure the the sidebar works properly 
 	public void ShowSidebar() throws Exception {
 		driver.get("http://imgur.com/");
 		WebElement test;
@@ -60,6 +58,8 @@ public class webtests {
 	
 	
 	@Test
+	// Tests that a user can upload a picture
+	//FOR THIS TEST TO WORK ON OTHER OS Keys.COMMAND CAN BE REPLACED WITH Keys.CONTROL
 	public void UploadTest() throws Exception {
 		StringSelection selection = new StringSelection("http://i.imgur.com/xY3TaEV.png");
 	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -85,6 +85,8 @@ public class webtests {
 	  
 	
 	@Test
+	//Tests that a timestap advances after a picture had been uploaded
+	//FOR THIS TEST TO WORK ON OTHER OS Keys.COMMAND CAN BE REPLACED WITH Keys.CONTROL
 	public void TimeStampTest() throws Exception {
 		StringSelection selection = new StringSelection("http://i.imgur.com/xY3TaEV.png");
 	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -108,6 +110,7 @@ public class webtests {
 	  
 	  
 	@Test
+	//Makes sure that when you cick an image you are taken to that page
 	public void BrowseTest() throws Exception {
 		driver.get("http://imgur.com/");
 		WebElement test;
@@ -123,6 +126,7 @@ public class webtests {
 	  }
 	
 	@Test
+	//Tests that the random button works
 	public void RandomTest() throws Exception {
 		driver.get("http://imgur.com/");
 		WebElement test;
@@ -133,6 +137,7 @@ public class webtests {
 		driver.quit();
 	  }
 	@Test
+	//Tests that the random button works twice in a row
 	public void RandomTest2() throws Exception {
 		driver.get("http://imgur.com/");
 		WebElement test;
@@ -147,6 +152,7 @@ public class webtests {
 		driver.quit();
 	  }
 	@Test
+	//Checks that  the image at this link does not change over time
 	public void ImageCheck() throws Exception {
 		driver.get("http://i.imgur.com/FkVYvno.png");
 		String s = driver.findElement(By.className("shrinkToFit")).getAttribute("src");
@@ -160,6 +166,7 @@ public class webtests {
 	  }
 
 	@Test
+	//Checks that clicking the imgur logo takes you back to the homepage
 	public void HomePageCheck() throws Exception {
 		driver.get("http://imgur.com/FkVYvno");
 		WebElement test;
@@ -170,6 +177,7 @@ public class webtests {
 	  }
 	
 	@Test
+	//Tests that scrolling to the bottem of the page loads more pictures
 	public void ScrollCheck() throws Exception {
 		driver.get("http://imgur.com");
 		WebElement test;
@@ -189,7 +197,8 @@ public class webtests {
 	
 	
 	
-//Helper function to compare image buffers    
+//Helper function to compare image buffers 
+// This is based on a stackoverflow thread
 public boolean imagesAreEqual(BufferedImage image1, BufferedImage image2) {
 	if (image1.getWidth() != image2.getWidth() || image1.getHeight() != image2.getHeight()) {
 		return false;
