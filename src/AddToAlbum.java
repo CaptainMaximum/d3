@@ -26,8 +26,12 @@ public class AddToAlbum {
     login();
   }
   
-
-
+  /*
+   * Given I am logged in 
+   *     and I have a picture uploaded on my account
+   * When I change the title of a picture
+   * Then I should see the new title when I view the image.
+   */
   @Test
   public void testAddToAlbum() throws Exception {
 	  // Get the album page

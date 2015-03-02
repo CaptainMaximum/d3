@@ -29,7 +29,12 @@ public class AddImageAccount {
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     login();
   }
-  
+
+  /* 
+    * Given I am logged in
+   * When I upload a picture
+   * Then it should appear in my uploads
+   */
   @Test
   public void testAddImageAccount() throws Exception {
 	    StringSelection selection = new StringSelection("http://i.imgur.com/xY3TaEV.png");

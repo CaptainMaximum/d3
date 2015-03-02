@@ -34,6 +34,10 @@ public class NoSetup {
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
+  /*
+   * When I search for "funny,"
+   * Then I should find images that are tagged as funny.
+   */
   @Test
   public void testSearch() throws Exception {
     driver.get(baseUrl + "/");
@@ -44,15 +48,19 @@ public class NoSetup {
     driver.findElement(By.cssSelector("a.image-list-link > img")).click();
     driver.findElement(By.cssSelector("#tags-underbar > span")).click();
     List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "funny" + "')]"));
-    // Warning: verifyTextPresent may require manual changes
     try {
       assertTrue(list.size() > 0);
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    // ERROR: Caught exception [unknown command []]
   }
   
+  /*
+   * Given I am not logged in
+   * When I click on "log in"
+   *     and enter my credentials
+   * Then I shall be logged in.
+   */
   @Test
   public void testLogin() throws Exception {
 	  login();
@@ -60,8 +68,12 @@ public class NoSetup {
 	  assertTrue(accountName.equals("cs1699testing"));
   }
   
+  /*
+    When I check the front page
+    Then I should see no duplicate picture or albums
+   */
 	@Test
-	public void HomePagePictures() throws Exception {
+	public void testHomePagePictures() throws Exception {
 		driver.get("http://imgur.com/");
 		boolean dups = true;
 		List<WebElement> posts = driver.findElements(By.className("post"));
@@ -77,9 +89,13 @@ public class NoSetup {
 		Assert.assertTrue(dups);
 	  }
 	
-	
+	/*
+     * Given that I am on the homepage and the sidebar is closed
+     * When I click show sidebar
+     * Then the sidebar should appear.
+     */
 	@Test
-	public void ShowSidebar() throws Exception {
+	public void testShowSidebar() throws Exception {
 		driver.get("http://imgur.com/");
 		WebElement test;
 		test = driver.findElement(By.id("outside-tagging-showhide"));
@@ -89,9 +105,12 @@ public class NoSetup {
 		Assert.assertEquals(opacity,"opacity: 1;");
 	  }
 	
-	
+	/*Given I upload some content
+When I check to see the content
+Then I should be able to see the content
+*/
 	@Test
-	public void UploadTest() throws Exception {
+	public void testUpload() throws Exception {
 		StringSelection selection = new StringSelection("http://i.imgur.com/xY3TaEV.png");
 	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 	    clipboard.setContents(selection, selection);
@@ -111,9 +130,13 @@ public class NoSetup {
 	    Assert.assertTrue(imagesAreEqual(link,base));
 	  }
 	  
-	
+	/*
+     * Given I upload content
+     * When time advances
+     * Then I want to see the time on the site updated
+     */
 	@Test
-	public void TimeStampTest() throws Exception {
+	public void testTimeStamp() throws Exception {
 		StringSelection selection = new StringSelection("http://i.imgur.com/xY3TaEV.png");
 	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 	    clipboard.setContents(selection, selection);
@@ -132,9 +155,10 @@ public class NoSetup {
 		   Assert.assertFalse(time1.equals(time2));
 	  }
 	  
-	  
+	  /*When I click a picture
+Then the picture should be taken to that page*/
 	@Test
-	public void BrowseTest() throws Exception {
+	public void testBrowse() throws Exception {
 		driver.get("http://imgur.com/");
 		WebElement test;
 		test = driver.findElement(By.className("post"));
@@ -145,8 +169,13 @@ public class NoSetup {
 		Assert.assertEquals(currurl,"http://imgur.com/gallery/"+PostName);
 	  }
 	
+    /*
+     * Given that I am on the homepage
+     * When I click the random button
+     * Then I should be taken to a random image
+     */
 	@Test
-	public void RandomTest() throws Exception {
+	public void testRandom() throws Exception {
 		driver.get("http://imgur.com/");
 		WebElement test;
 		test = driver.findElement(By.id("random-button"));
@@ -154,8 +183,14 @@ public class NoSetup {
 		String currurl = driver.getCurrentUrl();
 		Assert.assertTrue(currurl.contains("gallery"));
 	  }
+
+    /*
+     * Given that I return to the homepage from a random image
+     * When I click the random button again
+     * Then I should be taken to a different random image
+    */
 	@Test
-	public void RandomTest2() throws Exception {
+	public void testDifferentRandom() throws Exception {
 		driver.get("http://imgur.com/");
 		WebElement test;
 		test = driver.findElement(By.id("random-button"));
@@ -167,8 +202,11 @@ public class NoSetup {
 		String url2 = driver.getCurrentUrl();
 		Assert.assertFalse(url1.equals(url2));
 	  }
+      /*Given I share a link to my content
+When the person I shared it with clicks the link
+Then they should see my content*/
 	@Test
-	public void ImageCheck() throws Exception {
+	public void testImageCheck() throws Exception {
 		driver.get("http://i.imgur.com/FkVYvno.png");
 		String s = driver.findElement(By.className("shrinkToFit")).getAttribute("src");
 		URL url = new URL(s);
@@ -176,18 +214,22 @@ public class NoSetup {
 	    BufferedImage base = ImageIO.read(new File("base.png"));
 	    Assert.assertTrue(imagesAreEqual(link,base));
 	  }
-
+   /*Given I am not on the homepage
+When I click the imgur logo
+Then I should return to the home page
+*/
 	@Test
-	public void HomePageCheck() throws Exception {
+	public void testHomePageCheck() throws Exception {
 		driver.get("http://imgur.com/FkVYvno");
 		WebElement test;
 		test = driver.findElement(By.className("logo "));
 		test.click();
 	    Assert.assertTrue(driver.getCurrentUrl().equals("http://imgur.com/"));
 	  }
-	
+	/*When I scroll to the bottom of the page
+Then the page should load more pictures*/
 	@Test
-	public void ScrollCheck() throws Exception {
+	public void testScrollCheck() throws Exception {
 		driver.get("http://imgur.com");
 		WebElement test;
 		test = driver.findElement(By.id("content"));

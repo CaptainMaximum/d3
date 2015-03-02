@@ -24,6 +24,11 @@ public class LoginFirst {
     login();
   }
   
+  /*
+   * Given I am logged in
+   * When I click on "log out"
+   * Then I shall be logged out
+   */
   @Test
   public void testLogout() throws Exception {
 	  logout();
@@ -36,7 +41,12 @@ public class LoginFirst {
 	  }
   }
 
-  
+  /*
+   * Given I am logged in 
+   *     and I have a picture uploaded on my account
+   * When I change the title of a picture
+   * Then I should see the new title when I view the image.
+   */  
   @Test 
   public void testTitleChange() throws Exception {
 	  driver.get("http://cs1699testing.imgur.com/all");
@@ -52,6 +62,11 @@ public class LoginFirst {
 	  assertTrue(title.equals(newTitle));
   }
   
+  /*
+   * Given that I am logged in
+   * When I comment on a picture
+   * Then my comment should appear on the picture's page.
+   */
   @Test 
   public void testComment() throws Exception {
 	  driver.get("http://imgur.com/gallery/eK94abP");

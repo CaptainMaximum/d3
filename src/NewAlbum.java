@@ -28,7 +28,11 @@ public class NewAlbum {
   }
   
 
-
+  /*
+   * Given I am logged in
+   * When I create a new album
+   * Then It shall appear in my list of albums
+   */
   @Test
   public void testNewAlbum() throws Exception {
 	  // Get the album page

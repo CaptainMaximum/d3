@@ -42,6 +42,12 @@ public class DeleteImage {
 	  driver.get("http://cs1699testing.imgur.com/all");
   	}
 
+  /*
+   * Given I am logged in
+   *     and I have a picture uploaded on my account
+   *  When I delete that picture
+   * Then it should not appear in my uploads
+   */
   @Test
   public void testDeleteImage() throws Exception {
 	  driver.get("http://cs1699testing.imgur.com/all/");

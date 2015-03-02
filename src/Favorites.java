@@ -23,6 +23,11 @@ public class Favorites {
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
   
+  /*
+   * Given I am logged in
+   * When I "favorite" a picture
+   * Then that picture should appear on my list of favorites
+   */
   @Test
   public void testFavorite() throws Exception {
 	  login();
