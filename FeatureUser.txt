@@ -1,0 +1,39 @@
+Feature
+	As a user, 
+	I want to be able to browse the site 
+	so that I can view content.
+
+Scenario: Search
+	When I search for "funny,"
+	Then I should find images that are tagged as funny.
+
+Scenario: Homepage
+	Given I am not on the homepage
+	When I click the imgur logo
+	Then I should return to the home page
+
+Scenario: Sidebar
+	Given that I am on the homepage and the sidebar is closed
+	When I click show sidebar
+	Then the sidebar should appear.
+
+Scenario: Random
+	Given that I am on the homepage
+	When I click the random button
+	Then I should be taken to a random image
+
+Scenario: Random is Random
+	Given that I return to the homepage from a random image
+	When I click the random button again
+	Then I should be taken to a different random image
+
+Scenario: Login
+	Given I am not logged in
+	When I click on "log in"
+		and enter my credentials
+	Then I shall be logged in.
+
+Scenario: Logout
+	Given I am logged in
+	When I click on "log out"
+	Then I shall be logged out

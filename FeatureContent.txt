@@ -1,0 +1,32 @@
+Feature 
+	As an uploader, 
+	I want to be able to manage my content 
+	so that I can I can control my content
+
+Scenario: Title
+	Given I am logged in
+		and I have a picture uploaded on my account
+	When I change the title of a picture
+	Then I should see the new title when I view the image.
+
+Scenario: Album
+	Given I am logged in
+	When I create a new album
+	Then It shall appear in my list of albums
+
+Scenario: My Uploads
+	Given I am logged in
+		and I have a picture uploaded on my account
+	When I delete that picture
+	Then it should not appear in my uploads
+
+Scenario: Delete an Album
+	Given I am logged in
+		And I have an album
+	When I delete that album
+	
+Scenario: Add to Album
+	Given I am logged in
+		and I own an empty album
+	When I add a picture to that album
+	Then that one picture will be in that album

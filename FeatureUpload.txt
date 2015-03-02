@@ -1,0 +1,20 @@
+Feature 
+	As an uploader 
+	I want upload and share content 
+	so that my content can be online
+
+Scenario: Upload a file
+	Given I upload some content
+	When I check to see the content
+	Then I should be able to see the content
+
+Scenario: Test a link references the correct file 
+	Given I share a link to my content
+	When the person I shared it with clicks the link
+	Then they should see my content
+
+Scenario: Test that time is accurate
+	Given I upload content
+	When time advances
+	Then I want to see the time on the site updated
+

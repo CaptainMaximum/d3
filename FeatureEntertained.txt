@@ -1,0 +1,25 @@
+Feature
+	As a user
+	I want view content 
+	so that I can be entertained
+
+Scenario: Front page duplicates
+	When I check the front page
+	Then I should see no duplicate picture or albums
+
+Scenario: Click a picture
+	When I click a picture 
+	Then the picture should be taken to that page
+
+Scenario: Scroll
+	When I scroll to the bottom of the page 
+	Then the page should load more pictures
+
+Scenario: Comment
+	Given that I am logged in
+	When I comment on a picture
+	Then my comment should appear on the picture's page.
+
+Scenario: Favorite
+	When I "favorite" a picture
+	Then that picture should appear on my list of favorites
