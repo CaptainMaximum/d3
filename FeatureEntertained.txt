@@ -2,6 +2,7 @@ Feature
 	As a user
 	I want view content 
 	so that I can be entertained
+	
 
 Scenario: Front page duplicates
 	When I check the front page
@@ -21,5 +22,6 @@ Scenario: Comment
 	Then my comment should appear on the picture's page.
 
 Scenario: Favorite
+	Given that I am logged in
 	When I "favorite" a picture
 	Then that picture should appear on my list of favorites

@@ -36,8 +36,11 @@ As a user, I want view content so that I can be entertained
 	When I comment on a picture
 	Then my comment should appear on the picture's page.
 
+
+	Given that I am logged in
 	When I "favorite" a picture
 	Then that picture should appear on my list of favorites
+
 
 As a user, I want to be able to browse the site so that I can view content.
 
@@ -75,9 +78,15 @@ As a user, I want to be able to browse the site so that I can view content.
 	Given I am logged in
 	When I click on "log out"
 	Then I shall be logged out
+	
 
 As an uploader, I want to be able to manage my content so that I can I can control my content
 
+
+	Given I am logged in
+	When I upload a picture
+	Then it should appear in my uploads
+	
 
 	Given I am logged in
 		and I have a picture uploaded on my account
@@ -94,11 +103,6 @@ As an uploader, I want to be able to manage my content so that I can I can contr
 		and I have a picture uploaded on my account
 	When I delete that picture
 	Then it should not appear in my uploads
-
-
-	Given I am logged in
-		And I have an album
-	When I delete that album
 	
 
 	Given I am logged in

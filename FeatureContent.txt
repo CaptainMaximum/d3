@@ -3,6 +3,12 @@ Feature
 	I want to be able to manage my content 
 	so that I can I can control my content
 
+
+Scenario: Upload image to account
+	Given I am logged in
+	When I upload a picture
+	Then it should appear in my uploads
+
 Scenario: Title
 	Given I am logged in
 		and I have a picture uploaded on my account
@@ -14,16 +20,11 @@ Scenario: Album
 	When I create a new album
 	Then It shall appear in my list of albums
 
-Scenario: My Uploads
+Scenario: Delete a picture
 	Given I am logged in
 		and I have a picture uploaded on my account
 	When I delete that picture
 	Then it should not appear in my uploads
-
-Scenario: Delete an Album
-	Given I am logged in
-		And I have an album
-	When I delete that album
 	
 Scenario: Add to Album
 	Given I am logged in
